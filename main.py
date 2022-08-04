@@ -1,5 +1,8 @@
 # Available imports for library
 
+# nik1x-tools is a library to use in my own projects.
+# library collects all tools, writed by me
+
 # Encryption tools
 from nik1xtools.crypt.DiffieHellman import DiffieHellmanEncrypt
 
