@@ -1,4 +1,5 @@
 import os
+import requests
 
 
 class File:
@@ -19,6 +20,14 @@ class File:
             data = file.read()
             file.close()
             return data
+
+    def load(self) -> str or dict:
+        if self.path.endswith(".json"):
+            data = requests.get(self.path).json()
+        else:
+            data = requests.get(self.path).content
+
+        return data
 
     def write(self, data):
         with open(self.path, "w") as file:
