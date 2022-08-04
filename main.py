@@ -5,5 +5,6 @@ from nik1xtools.microservices.Microservices import InitMS
 from nik1xtools.minecraft.Rcon import RconConnection
 from nik1xtools.minecraft.Roles import RoleManager
 from nik1xtools.minecraft.Commands import CommandManager
+from nik1xtools.minecraft.Yggdrasil import YggAuth
 from nik1xtools.minecraft.StandardGalacticLanguage import SGA
 from nik1xtools.network.IPTools import IPLock, IPAllow
