@@ -20,6 +20,7 @@ class File:
             data = file.read()
             file.close()
             return data
+    
 
     def load(self) -> str or dict:
         if self.path.endswith(".json"):
