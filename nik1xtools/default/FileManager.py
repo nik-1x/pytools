@@ -1,4 +1,5 @@
 import os
+import requests
 
 
 class File:
@@ -14,14 +15,33 @@ class File:
                     file.write(on_empty_write_data)
                     file.close()
 
+    def exists(self) -> bool:
+        if not os.path.exists(self.path):
+            return False
+        return True
+
     def read(self) -> str:
         with open(self.path, "r") as file:
             data = file.read()
             file.close()
             return data
 
+    def load(self) -> str or dict:
+        if self.path.endswith(".json"):
+            data = requests.get(self.path).json()
+        else:
+            data = requests.get(self.path).content
+
+        return data
+
     def write(self, data):
         with open(self.path, "w") as file:
+            file.write(data)
+            file.close()
+        return self
+
+    def write_bytes(self, data):
+        with open(self.path, "wb") as file:
             file.write(data)
             file.close()
         return self
