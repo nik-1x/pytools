@@ -1,3 +1,10 @@
-from nik1xtools.default.FileManager import File
+from nik1xtools.exceptions.Handling import ExceptionManager
 
-data = File("https://test.tisl.ru/config.json").load()
+ehandler = ExceptionManager()
+
+def print_(args):
+    int(args)
+
+print(
+    ehandler.handle(function=print_, args=("dadwa", "dawddaw"), exception_return="Error", return_print=False)
+)
