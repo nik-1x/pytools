@@ -1,5 +1,5 @@
 import json
-from nik1xtools.default.FileManager import File
+from default.FileManager import File
 
 
 class RoleManager:
