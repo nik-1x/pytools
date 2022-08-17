@@ -1,5 +1,6 @@
 import os
 import requests
+import json
 
 
 class File:
@@ -26,6 +27,15 @@ class File:
             file.close()
             return data
 
+    def read_bytes(self) -> bytes:
+        with open(self.path, "rb") as file:
+            data = file.read()
+            file.close()
+            return data
+
+    def read_json(self) -> dict:
+        return json.loads(self.read())
+
     def load(self) -> str or dict:
         if self.path.endswith(".json"):
             data = requests.get(self.path).json()
@@ -45,3 +55,8 @@ class File:
             file.write(data)
             file.close()
         return self
+
+    def write_json(self, data: dict):
+        return self.write(json.dumps(data, sort_keys=True, indent=4))
+
+
