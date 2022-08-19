@@ -1,5 +1,4 @@
 import os
-import requests
 import json
 
 
@@ -37,6 +36,7 @@ class File:
         return json.loads(self.read())
 
     def load(self) -> str or dict:
+        import requests
         if self.path.endswith(".json"):
             data = requests.get(self.path).json()
         else:
